@@ -6,7 +6,7 @@ $(document).ready(function(){
       type: "GET",
       url: "/data",
       success: function(data){
-        console.log(data);
+        // console.log(data);
 
         data.forEach(function(upsilon) {
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
           //Next button
-          $('.next').on('click', function () {
+          $('#next').on('click', function () {
             if (currentStudent == data.length - 1) {
               currentStudent = 0;
             } else {
@@ -27,7 +27,7 @@ $(document).ready(function(){
           });
 
           //Prev button
-          $('.prev').on('click', function () {
+          $('#prev').on('click', function () {
             if (currentStudent == 0) {
               currentStudent = data.length-1;
             } else {
@@ -43,8 +43,8 @@ $(document).ready(function(){
 
   //Removes old student div and switches to current student div
   function changeStudent (data, currentStudent) {
-      $('.ajax-stuff').children('div').remove();
-      appendDOM(data[currentStudent]);
+      $('.ajax-stuff').closest('div').remove();
+      appendDom(data[currentStudent]);
   };
 
   //Appends dom with student information
